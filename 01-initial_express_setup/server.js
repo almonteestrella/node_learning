@@ -44,7 +44,7 @@ app.get('/api/query', (req, res) => {
     }
 
     if (sortedProducts.length < 1) {
-        res.status(200).json({ success: true, data: [] });
+        return res.status(200).json({ success: true, data: [] }); //you need to use the return keyword if you are sending more than one res on a single request.
     }
 
     res.status(200).json(sortedProducts);
