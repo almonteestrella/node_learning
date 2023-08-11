@@ -1,0 +1,26 @@
+In Express.js, you can get the ID of a specific resource in a request by accessing the parameters of the request object. The ID can be defined in the URL of the request as a parameter, which can be accessed in the route handler function.
+
+Here is an example of how to get the ID of a resource using Express.js:
+
+// Define a route with a parameter named "id"
+app.get('/resource/:id', function(req, res) {
+  // Get the ID from the request parameters
+  const id = req.params.id;
+  // Use the ID to fetch the resource from a database or other data source
+  const resource = getResourceById(id);
+  // Return the resource as a JSON response
+  res.json(resource);
+});
+
+In this example, the req.params.id property is used to get the ID from the URL parameter. This value can then be used to fetch the resource from a database or other data source and return it as a JSON response.
+
+Note that the parameter name in the route definition (i.e. :id) must match the parameter name used in the route handler function (i.e. req.params.id).
+
+STATIC FILES
+In Express, you can serve static files, such as HTML, CSS, and JavaScript, by using the built-in middleware express.static. This middleware function takes one argument, which is the root directory of the files to be served. Also, this are assects express doesn't have to change.
+
+
+APP.USE: In Express, app.use() is a method used to mount middleware functions at a specified path. Middleware functions are functions that have access to the request and response objects, and the next middleware function in the application's request-response cycle.
+
+The app.use() method takes a middleware function as an argument, and can also take a path as a string or a regular expression. The path argument is optional, and if not provided, the middleware function will be executed for every incoming request.
+
