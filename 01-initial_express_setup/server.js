@@ -2,12 +2,17 @@ const express = require('express');
 const logger = require('./middleware/logger');
 const authorized = require('./middleware/authorized');
 
+//third party dependency
+const morgan = require('morgan');
+
 const app = express();
 
 //middleware
 // req => middleware => res
 
-app.use([logger, authorized]); //apply the middleware functions in ALL my routes and should be on top of all the routes
+// app.use([logger, authorized]); //apply the middleware functions in ALL my routes and should be on top of all the routes
+
+app.use(morgan('tiny')); //logger functionality
 
 app.get('/', (req, res) => {
     res.send('home page');
