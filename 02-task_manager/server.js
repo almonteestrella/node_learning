@@ -6,12 +6,9 @@ require('dotenv').config();
 
 //middleware
 app.use(express.json());
+app.use(express.static('./public'));
 
 //routes
-app.get('/', (req, res) => {
-    res.send('hello from server');
-});
-
 app.use('/api/v1/tasks', tasks);
 
 const port = 5000;
